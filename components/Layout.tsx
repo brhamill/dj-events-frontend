@@ -3,7 +3,7 @@ import { Header } from './Header'
 import { Footer } from './Footer'
 import { FunctionComponent } from 'react'
 
-import styles from '../styles/Layout.module.css'
+import styles from '@/styles/Layout.module.css'
 
 type Props = {
   title?: string
