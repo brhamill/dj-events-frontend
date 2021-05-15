@@ -1,6 +1,8 @@
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import { Header } from './Header'
 import { Footer } from './Footer'
+import { Showcase } from './Showcase'
 import { FunctionComponent } from 'react'
 
 import styles from '@/styles/Layout.module.css'
@@ -17,6 +19,8 @@ export const Layout: FunctionComponent<Props> = ({
   description,
   children,
 }) => {
+  const router = useRouter()
+
   return (
     <div>
       <Head>
@@ -26,6 +30,7 @@ export const Layout: FunctionComponent<Props> = ({
       </Head>
 
       <Header />
+      {router.pathname === '/' && <Showcase />}
       <div className={styles.container}>{children}</div>
       <Footer />
     </div>
