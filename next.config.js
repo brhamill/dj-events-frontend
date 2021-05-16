@@ -1,7 +1,4 @@
 /* eslint-disable */
-// const withPlugins = require('next-compose-plugins')
-// const withFonts = require('next-fonts')
-// const withImages = require('next-images')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 /* eslint-enable */
 
