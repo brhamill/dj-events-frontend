@@ -8,5 +8,14 @@ export interface IEvent {
   date: string
   time: string
   description: string
-  image: string
+  image: {
+    formats: {
+      medium: {
+        url: string
+      }
+      thumbnail: {
+        url: string
+      }
+    }
+  }
 }

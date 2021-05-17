@@ -9,11 +9,13 @@
   },
   "dependencies": {
     "next": "10.2.0",
+    "qs": "^6.10.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.2.0"
   },
   "devDependencies": {
+    "@types/qs": "^6.9.6",
     "@types/react": "^17.0.5",
     "@types/react-icons": "^3.0.0",
     "tsconfig-paths-webpack-plugin": "^3.5.1",
