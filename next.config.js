@@ -3,6 +3,9 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 /* eslint-enable */
 
 module.exports = {
+  images: {
+    domains: ['res.cloudinary.com'],
+  },
   webpack: (config) => {
     if (config.resolve.plugins) {
       config.resolve.plugins.push(new TsconfigPathsPlugin())
