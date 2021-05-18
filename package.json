@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "moment": "^2.29.1",
     "next": "10.2.0",
     "qs": "^6.10.1",
     "react": "17.0.2",
@@ -16,6 +17,7 @@
     "react-toastify": "^7.0.4"
   },
   "devDependencies": {
+    "@types/moment": "^2.13.0",
     "@types/qs": "^6.9.6",
     "@types/react": "^17.0.5",
     "@types/react-icons": "^3.0.0",

@@ -6,6 +6,9 @@ module.exports = {
   images: {
     domains: ['res.cloudinary.com'],
   },
+  future: {
+    webpack5: true,
+  },
   webpack: (config) => {
     if (config.resolve.plugins) {
       config.resolve.plugins.push(new TsconfigPathsPlugin())
