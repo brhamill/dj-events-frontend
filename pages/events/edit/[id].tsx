@@ -184,11 +184,14 @@ type Params = {
   params: {
     id: number
   }
+  req: any
 }
 
-export async function getServerSideProps({ params: { id } }: Params) {
+export async function getServerSideProps({ params: { id }, req }: Params) {
   const res = await fetch(`${API_URL}/events/${id}`)
   const evt = await res.json()
+
+  console.log(req.headers.cookie)
 
   return {
     props: { evt },
