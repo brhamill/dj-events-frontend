@@ -2,7 +2,7 @@ import { API_URL } from '@/config/index'
 import { NextApiRequest, NextApiResponse } from 'next'
 import cookie from 'cookie'
 
-const Login = async (req: NextApiRequest, res: NextApiResponse) => {
+const User = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'GET') {
     if (!req.headers.cookie) {
       res.status(403).json({ message: 'Not Authorized' })
@@ -31,4 +31,4 @@ const Login = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 }
 
-export default Login
+export default User
