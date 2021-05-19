@@ -4,15 +4,18 @@ import 'react-toastify/dist/ReactToastify.css'
 import { useState, useEffect, useContext, FormEvent } from 'react'
 import Link from 'next/link'
 import { Layout } from '@/components/Layout'
+import AuthContext from '@/context/AuthContext'
 import styles from '@/styles/AuthForm.module.css'
 
 const LoginPage = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const { login, error }: any = useContext(AuthContext)
+
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault
-    console.log({ email, password })
+    login({ email, password })
   }
 
   return (
