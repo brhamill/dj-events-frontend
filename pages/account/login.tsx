@@ -13,8 +13,11 @@ const LoginPage = () => {
 
   const { login, error }: any = useContext(AuthContext)
 
+  useEffect(() => error && toast.error(error))
+
   const handleSubmit = (e: FormEvent) => {
-    e.preventDefault
+    e.preventDefault()
+
     login({ email, password })
   }
 

@@ -16,7 +16,7 @@ const RegisterPage = () => {
   const { register, error }: any = useContext(AuthContext)
 
   const handleSubmit = (e: FormEvent) => {
-    e.preventDefault
+    e.preventDefault()
 
     if (password !== passwordConfirm) {
       toast.error('Passwords do not match!')
