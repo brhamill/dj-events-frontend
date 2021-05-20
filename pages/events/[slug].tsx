@@ -54,34 +54,44 @@ const EventPage: FunctionComponent<Props> = ({ evt }) => {
   )
 }
 
-export async function getStaticPaths() {
-  const res = await fetch(`${API_URL}/events`)
-  const events = await res.json()
+// export async function getStaticPaths() {
+//   const res = await fetch(`${API_URL}/events`)
+//   const events = await res.json()
 
-  const paths = events.map((evt: IEvent) => ({
-    params: { slug: evt.slug },
-  }))
+//   const paths = events.map((evt: IEvent) => ({
+//     params: { slug: evt.slug },
+//   }))
 
-  return {
-    paths,
-    fallback: true,
-  }
-}
+//   return {
+//     paths,
+//     fallback: true,
+//   }
+// }
 
-type Params = {
-  params: {
-    slug: string
-  }
-}
+// type Params = {
+//   params: {
+//     slug: string
+//   }
+// }
 
-export async function getStaticProps({ params: { slug } }: Params) {
+// export async function getStaticProps({ params: { slug } }: Params) {
+//   const res = await fetch(`${API_URL}/events?slug=${slug}`)
+
+//   const events = await res.json()
+
+//   return {
+//     props: { evt: events[0] },
+//     revalidate: 1,
+//   }
+// }
+
+export async function getServerSideProps({ query: { slug } }: any) {
   const res = await fetch(`${API_URL}/events?slug=${slug}`)
 
   const events = await res.json()
 
   return {
     props: { evt: events[0] },
-    revalidate: 1,
   }
 }
 

@@ -76,7 +76,7 @@ const EditEventPage: FunctionComponent<Props> = ({ evt, token }) => {
     setValues({ ...values, [name]: value })
   }
 
-  const imageUploaded = async (e) => {
+  const imageUploaded = async (e: any) => {
     const res = await fetch(`${API_URL}/events/${evt.id}`)
     const data = await res.json()
     setImagePreview(data.image.formats.thumbnail.url)

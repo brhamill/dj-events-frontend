@@ -70,7 +70,7 @@ export const AuthProvider = ({ children }: any) => {
   }
 
   // Check if user is logged in
-  const checkUserLoggedIn = async () => {
+  const checkUserLoggedIn: any = async () => {
     const res = await fetch(`${NEXT_URL}/api/user`)
     const data = await res.json()
 

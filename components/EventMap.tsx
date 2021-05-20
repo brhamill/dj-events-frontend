@@ -4,7 +4,7 @@ import ReactMapGL, { Marker } from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import GeoCode from 'react-geocode'
 
-export const EventMap = ({ evt }) => {
+export const EventMap: any = ({ evt }: any) => {
   const [lat, setLat] = useState(null)
   const [lng, setLng] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -25,7 +25,7 @@ export const EventMap = ({ evt }) => {
       setViewport({ ...viewport, latitude: lat, longitude: lng })
       setLoading(false)
     }),
-      (error) => {
+      (error: any) => {
         console.error(error)
       }
   }, [])
@@ -40,9 +40,9 @@ export const EventMap = ({ evt }) => {
     <ReactMapGL
       {...viewport}
       mapboxApiAccessToken={process.env.NEXT_PUBLIC_MAPBOX_API_TOKEN}
-      onViewportChange={(vp) => setViewport(vp)}
+      onViewportChange={(vp: any) => setViewport(vp)}
     >
-      <Marker key={evt.id} latitude={lat} longitude={lng}>
+      <Marker key={evt.id} latitude={lat ?? 0} longitude={lng ?? 0}>
         <Image src='/images/pin.svg' width={30} height={30} />
       </Marker>
     </ReactMapGL>

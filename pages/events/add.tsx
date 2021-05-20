@@ -10,7 +10,7 @@ import styles from '@/styles/Form.module.css'
 import { IEvent } from '@/interfaces/IEvent'
 import { parse } from 'qs'
 
-const AddEventPage = ({ token }) => {
+const AddEventPage = ({ token }: any) => {
   const [values, setValues] = useState({
     name: '',
     performers: '',
@@ -148,7 +148,7 @@ const AddEventPage = ({ token }) => {
   )
 }
 
-export async function getServerSideProps({ req }) {
+export async function getServerSideProps({ req }: any) {
   const { token } = parseCookies(req)
 
   return {

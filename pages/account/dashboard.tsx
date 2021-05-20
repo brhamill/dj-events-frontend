@@ -7,10 +7,10 @@ import { parseCookies } from '@/helpers/index'
 import { useRouter } from 'next/router'
 import styles from '@/styles/Dashboard.module.css'
 
-const DashboardPage = ({ events, token }) => {
+const DashboardPage = ({ events, token }: any) => {
   const router = useRouter()
 
-  const deleteEvent = async (id) => {
+  const deleteEvent = async (id: any) => {
     if (confirm('Are you sure?')) {
       const res = await fetch(`${API_URL}/events/${id}`, {
         method: 'DELETE',
@@ -35,7 +35,7 @@ const DashboardPage = ({ events, token }) => {
         <h1>Dashboard</h1>
         <h3>My Events</h3>
 
-        {events.map((evt) => (
+        {events.map((evt: any) => (
           <DashboardEvent key={evt.id} evt={evt} handleDelete={deleteEvent} />
         ))}
       </div>
