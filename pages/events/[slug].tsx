@@ -18,36 +18,9 @@ type Props = {
 const EventPage: FunctionComponent<Props> = ({ evt }) => {
   const router = useRouter()
 
-  const deleteEvent = async (e: React.MouseEvent<HTMLElement>) => {
-    if (confirm('Are you sure?')) {
-      const res = await fetch(`${API_URL}/events/${evt.id}`, {
-        method: 'DELETE',
-      })
-
-      const data = await res.json()
-
-      if (!res.ok) {
-        toast.error(data.message)
-      } else {
-        router.push('/events')
-      }
-    }
-  }
-
   return (
     <Layout>
       <div className={styles.event}>
-        <div className={styles.controls}>
-          <Link href={`/events/edit/${evt.id}`}>
-            <a>
-              <FaPencilAlt /> Edit Event
-            </a>
-          </Link>
-          <a href='#' className={styles.delete} onClick={deleteEvent}>
-            <FaTimes /> Delete Event
-          </a>
-        </div>
-
         <span>
           {new Date(evt.date).toLocaleDateString('en-US')} at {evt.time}
         </span>

@@ -1,12 +1,32 @@
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import { Layout } from '@/components/Layout'
 import { DashboardEvent } from '@/components/DashboardEvent'
 import { API_URL } from '@/config/index'
 import { parseCookies } from '@/helpers/index'
+import { useRouter } from 'next/router'
 import styles from '@/styles/Dashboard.module.css'
 
-const DashboardPage = ({ events }) => {
-  const deleteEvent = (id) => {
-    console.log(id)
+const DashboardPage = ({ events, token }) => {
+  const router = useRouter()
+
+  const deleteEvent = async (id) => {
+    if (confirm('Are you sure?')) {
+      const res = await fetch(`${API_URL}/events/${id}`, {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+
+      const data = await res.json()
+
+      if (!res.ok) {
+        toast.error(data.message)
+      } else {
+        router.reload()
+      }
+    }
   }
 
   return (
@@ -36,7 +56,7 @@ export async function getServerSideProps({ req }: any) {
   const events = await res.json()
 
   return {
-    props: { events },
+    props: { events, token },
   }
 }
 

@@ -6,11 +6,13 @@ import { FunctionComponent } from 'react'
 type Props = {
   evtId: number
   imageUploaded: any
+  token: string
 }
 
 export const ImageUpload: FunctionComponent<Props> = ({
   evtId,
   imageUploaded,
+  token,
 }) => {
   const [image, setImage] = useState<File>()
 
@@ -25,6 +27,9 @@ export const ImageUpload: FunctionComponent<Props> = ({
 
     const res = await fetch(`${API_URL}/upload`, {
       method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
       body: formData,
     })
 
